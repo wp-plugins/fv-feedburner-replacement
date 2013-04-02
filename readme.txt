@@ -50,6 +50,9 @@ Thoughtful Comments assumes that each comment is contained in some HTML element 
 == Changelog ==
 
 = 0.2 =
+* Bugfix for edit page link 
+ 
+= 0.1 =
 * Initial release
 
 
