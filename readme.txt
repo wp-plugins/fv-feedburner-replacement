@@ -36,13 +36,6 @@ Features:
 3. If you use WP Super Cache, follow the intructions in the plugin activation notice to disable feed caching, or see [Installation guide](http://foliovision.com/seo-tools/wordpress/plugins/fv-feedburner-replacement/installation/)
 
 
-== Theme compatibility ==
-
-If you want to get the most correct display when deleting a comment and preserving it's replies, you need to use a theme which is using "cascade" display of the comments instead of "nested" display. 
-
-Thoughtful Comments assumes that each comment is contained in some HTML element with unique ID which is containing the comment ID, so it works with most of the themes.
-
-
 == Screenshots ==
 
 1. Plugin settings screen.
