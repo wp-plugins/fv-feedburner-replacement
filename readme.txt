@@ -16,11 +16,10 @@ Creates a landing page for your feed subscription and out of the box working new
 Since Feedburner is no longer supported, we created this plugin to help you migrate your subscribers.
 
 Features:
-* Boost number of your newsletter subscribers by putting subscription form to your feed address
 
+* Boost number of your newsletter subscribers by putting subscription form to your feed address
 * Tell your Feedburner subscribers to re-subscribe on your new feed address when they read the feed
 * Show a subscription form for your Feedburner subscribers when they come to your website 
-
 * Out of the box working newsletter subscription form
 * Default subscription form works with [Newsletter](http://wordpress.org/extend/plugins/newsletter/) plugin by Satollo and uses double opt-in (confirmation emails)
 * CSV export for subscribers who sign up using the default work.
