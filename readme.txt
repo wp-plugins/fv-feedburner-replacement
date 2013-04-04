@@ -13,16 +13,20 @@ Creates a landing page for your feed subscription and out of the box working new
 
 == Description ==
 
-Since Feedburner is no longer supported, we created this plugin to help you migrate your subscribers.
+Feedburner was a great service. It's a bit of a mystery why Google is shutting down Reader and Feedburner which were both popular services and offered Google valuable content intelligence. The shutdown is a real wakeup call to those of us who depend on external services.
 
-Features:
+Since Feedburner is no longer supported, we created this plugin to help you migrate your subscribers and to allow you to keep your feed on a URL controlled by you going forward. You will be immune to feed companies going out of business, shutting down services or hiking prices in the future. Take control of your own feed and your own subscribers!
+
+Benefits:
 
 * Boost number of your newsletter subscribers by putting subscription form to your feed address
-* Tell your Feedburner subscribers to re-subscribe on your new feed address when they read the feed
-* Show a subscription form for your Feedburner subscribers when they come to your website 
-* Out of the box working newsletter subscription form
+* Keep your Feedburner RSS readers! When Feedburner subscribers come to your site, they will automatically be prompted to re-subscribe on your new feed address when they read the feed
+* Upgrade RSS readers to email recipients. Show a subscription form for your Feedburner subscribers when they come to your website.
+* Easy to set up and get started: built-in newsletter subscription form works out of the box
 * Default subscription form works with [Newsletter](http://wordpress.org/extend/plugins/newsletter/) plugin by Satollo and uses double opt-in (confirmation emails)
-* CSV export for subscribers who sign up using the default work.
+* Optional CSV export for subscribers who sign up before you add your own mailing solution.
+
+Never pay monthly fees no matter how many subscribers you have. Never risk losing your subscribers again.
 
 **[More Information](http://foliovision.com/seo-tools/wordpress/plugins/fv-feedburner-replacement/)**
 
@@ -31,7 +35,7 @@ Features:
 
 == Installation ==
 
-1. Install the plugin using Wordpress or copy the plugin directory into your Wordpress plugins directory (usually wp-content/plugins) and activate it in Wordpress admin panel.
+1. Install the plugin using Wordpress's built in installer or copy the plugin directory into your Wordpress plugins directory via ftp (usually wp-content/plugins) and activate it in Wordpress admin panel.
 2. After activation, check the update notice - it will contain a link to test your feed.
 3. If you use WP Super Cache, follow the intructions in the plugin activation notice to disable feed caching, or see [Installation guide](http://foliovision.com/seo-tools/wordpress/plugins/fv-feedburner-replacement/installation/)
 
@@ -53,7 +57,7 @@ Features:
 
 = How does it work? =
 
-We use the same technique as Feedburner - if you come in using a RSS reader, http://your-site.com/feed gives you the feed content, but if you come in via a web browser, you get a page with the subscription options (newsletter, feed links). 
+We use exactly the same technique as Feedburner - if you come in using a RSS reader, http://your-site.com/feed gives you the feed content, but if you come in via a web browser, you get a page with the subscription options (newsletter, feed links). 
 
 = Does it work with caching? =
 
