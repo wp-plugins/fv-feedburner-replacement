@@ -4,7 +4,7 @@ Contributors: FolioVision
 Tags: feedburner,feed,subscribe,newsletter
 Requires at least: 3.5
 Tested up to: 3.5.1
-Stable tag: 0.2.910
+Stable tag: 0.2.911
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,9 +46,13 @@ Never pay monthly fees no matter how many subscribers you have. Never risk losin
 
 == Changelog ==
 
+= 0.2.911 =
+
+* Another test commit
+
 = 0.2.910 =
 
-== Changelog ==
+* Another test commit
 
 = 0.2.909 =
 
