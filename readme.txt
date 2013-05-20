@@ -4,7 +4,7 @@ Contributors: FolioVision
 Tags: feedburner,feed,subscribe,newsletter
 Requires at least: 3.5
 Tested up to: 3.5.1
-Stable tag: 0.3
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,85 +45,6 @@ Never pay monthly fees no matter how many subscribers you have. Never risk losin
 1. Plugin settings screen.
 
 == Changelog ==
-
-= 0.3 =
-
-* Stable version
-
-= 0.2.912 =
-
-* Another test commit
-
-= 0.2.911 =
-
-* Another test commit
-
-= 0.2.910 =
-
-* Another test commit
-
-= 0.2.909 =
-
-* Another test commit
-
-= 0.2.908 =
-
-* Another test commit
-
-= 0.2.907 =
-
-* Another test commit
-
-= 0.2.906 =
-
-* Another test commit
-
-= 0.2.905 =
-
-* Another test commit
-
-= 0.2.904 =
-
-* Another test commit
-
-= 0.2.903 =
-
-* Another test commit
-
-= 0.2.902 =
-
-* Another test commit
-
-= 0.2.901 =
-
-* Another test commit
-
-= 0.2.9 =
-* Another test commit
-
-= 0.2.8 =
-* Another test commit
-
-= 0.2.7 =
-* Another test commit
-
-= 0.2.6 =
-* Another test commit
-
-= 0.2.5 =
-* Another test commit
-
-= 0.2.4 =
-* Another test commit
-
-= 0.2.3 =
-* And another test commit
-
-= 0.2.2 =
-* Another test commit
-
-= 0.2.1 = 
-* Testing new Commit script
 
 = 0.2 =
 * Bugfix for edit page link 
