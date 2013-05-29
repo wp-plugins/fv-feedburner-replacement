@@ -355,7 +355,7 @@ Thanks for reading ".get_bloginfo('name')."!";
 	
 	function notice() {
 	  $options = get_option('fv_feedburner_replacement');
-	  return 'You should clear your browser cache and <a href="'.get_bloginfo('rss2_url').'" target="_blank">check if you see the "'.$options['title'].'" page in your browser</a> and also <a href="http://validator.w3.org/appc/check.cgi?url='.get_bloginfo('rss2_url').'" target="_blank">check if valid feed is served to RSS readers</a>.';
+	  return 'You should clear your browser cache and <a href="'.get_bloginfo('rss2_url').'" target="_blank">check if you see the "'.$options['title'].'" page in your browser</a> and also <a href="http://validator.w3.org/check?url='.get_bloginfo('rss2_url').'" target="_blank">check if valid feed is served to RSS readers</a>.';
 	}
 	
 	
