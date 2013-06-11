@@ -47,7 +47,7 @@ Never pay monthly fees no matter how many subscribers you have. Never risk losin
 == Changelog ==
 
 = 0.3 =
-* Bugfix for feed validator link 
+* Minor bugfix for feed validator link 
 
 = 0.2 =
 * Bugfix for edit page link 
