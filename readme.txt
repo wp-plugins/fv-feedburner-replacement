@@ -13,7 +13,7 @@ Creates a landing page for your feed subscription and out of the box working new
 
 == Description ==
 
-Feedburner was a great service. It's a bit of a mystery why Google is shutting down Reader and why they dropped support for Feedburner and shut down its API which were both popular services and offered Google valuable content intelligence. The shutdown is a real wakeup call to those of us who depend on external services.
+Feedburner was a great service. It's a bit of a mystery why Google is shutting down Reader and why they dropped support for Feedburner and shut down its API. Both were popular services and offered Google valuable content intelligence. The shutdown is a real wakeup call to those of us who depend on external services.
 
 Since Feedburner is no longer supported, we created this plugin to help you migrate your subscribers and to allow you to keep your feed on a URL controlled by you going forward. You will be immune to feed companies going out of business, shutting down services or hiking prices in the future. Take control of your own feed and your own subscribers!
 
