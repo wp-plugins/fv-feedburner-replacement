@@ -3,8 +3,8 @@
 Contributors: FolioVision
 Tags: feedburner,feed,subscribe,newsletter
 Requires at least: 3.5
-Tested up to: 3.5.1
-Stable tag: 0.3
+Tested up to: 3.5.2
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Creates a landing page for your feed subscription and out of the box working new
 
 == Description ==
 
-Feedburner was a great service. It's a bit of a mystery why Google is shutting down Reader and Feedburner which were both popular services and offered Google valuable content intelligence. The shutdown is a real wakeup call to those of us who depend on external services.
+Feedburner was a great service. It's a bit of a mystery why Google is shutting down Reader and why they dropped support for Feedburner and shut down its API. Both were popular services and offered Google valuable content intelligence. The shutdown is a real wakeup call to those of us who depend on external services.
 
 Since Feedburner is no longer supported, we created this plugin to help you migrate your subscribers and to allow you to keep your feed on a URL controlled by you going forward. You will be immune to feed companies going out of business, shutting down services or hiking prices in the future. Take control of your own feed and your own subscribers!
 
@@ -47,83 +47,7 @@ Never pay monthly fees no matter how many subscribers you have. Never risk losin
 == Changelog ==
 
 = 0.3 =
-
-* Stable version
-
-= 0.2.912 =
-
-* Another test commit
-
-= 0.2.911 =
-
-* Another test commit
-
-= 0.2.910 =
-
-* Another test commit
-
-= 0.2.909 =
-
-* Another test commit
-
-= 0.2.908 =
-
-* Another test commit
-
-= 0.2.907 =
-
-* Another test commit
-
-= 0.2.906 =
-
-* Another test commit
-
-= 0.2.905 =
-
-* Another test commit
-
-= 0.2.904 =
-
-* Another test commit
-
-= 0.2.903 =
-
-* Another test commit
-
-= 0.2.902 =
-
-* Another test commit
-
-= 0.2.901 =
-
-* Another test commit
-
-= 0.2.9 =
-* Another test commit
-
-= 0.2.8 =
-* Another test commit
-
-= 0.2.7 =
-* Another test commit
-
-= 0.2.6 =
-* Another test commit
-
-= 0.2.5 =
-* Another test commit
-
-= 0.2.4 =
-* Another test commit
-
-= 0.2.3 =
-* And another test commit
-
-= 0.2.2 =
-* Another test commit
-
-= 0.2.1 = 
-* Testing new Commit script
+* Bugfix for feed validator link 
 
 = 0.2 =
 * Bugfix for edit page link 
