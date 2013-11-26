@@ -3,7 +3,7 @@
 Plugin Name: FV Feedburner Replacement
 Description: Changes /feed to a newsletter subscription page, yet allows feed readers to read it as a feed. Eases up user subscription.
 Author: Foliovision 
-Version: 0.3
+Version: 0.4
 */
 
 require_once( dirname(__FILE__) . '/newsletter-bridge.php' );
@@ -284,6 +284,7 @@ Thanks for reading ".get_bloginfo('name')."!";
 
 		// Make WP believe this is a real page, with no comments attached
 		$wp_query->is_page = true;
+    $wp_query->is_singular = true;
 		$wp_query->is_single = false;
 		$wp_query->is_home = false;
 		$wp_query->comments = false;
