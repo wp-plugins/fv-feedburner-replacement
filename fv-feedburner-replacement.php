@@ -776,7 +776,7 @@ fv_feedburner_replacement_countChars(document.getElementById('description'),docu
       add_filter( 'the_content', array( $this, 'the_content' ), 999 );
       add_filter( 'comments_open', array( $this, 'comments_open' ), 10, 2 );
     }
-    else if( strpos( $_SERVER['HTTP_REFERER'], 'subscribe=yes' ) ) {      
+    else if( isset($_SERVER['HTTP_REFERER']) && strpos( $_SERVER['HTTP_REFERER'], 'subscribe=yes' ) ) {      
     	$content .= '<p><a href="'.preg_replace( '~(\?.*$)~', '', $_SERVER['HTTP_REFERER'] ).'">Continue to the article &raquo;</a></p>';
     }
     //remove_filter( 'the_content', array( $this, 'the_content' ), 999 );
@@ -841,7 +841,7 @@ fv_feedburner_replacement_countChars(document.getElementById('description'),docu
   
   
   function user_agents() {
-    if( strlen( $_SERVER['HTTP_REFERER'] ) == 0 ) return true;
+    if( !isset($_SERVER['HTTP_REFERER']) || strlen( $_SERVER['HTTP_REFERER'] ) == 0 ) return true;
   
     // Do nothing if feedburner is the user-agent
     if( $this->detect_feedburner() ) return true;
