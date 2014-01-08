@@ -3,7 +3,7 @@
 Plugin Name: FV Feedburner Replacement
 Description: Changes /feed to a newsletter subscription page, yet allows feed readers to read it as a feed. Eases up user subscription.
 Author: Foliovision 
-Version: 0.4
+Version: 0.4.1
 */
 
 require_once( dirname(__FILE__) . '/newsletter-bridge.php' );
@@ -100,7 +100,7 @@ Thanks for reading ".get_bloginfo('name')."!";
 	
 	
 	function admin_head() {
-	  if( $_GET['page'] == 'fv_feedburner_replacement' ) {
+	  if( isset($_GET['page']) && $_GET['page'] == 'fv_feedburner_replacement' ) {
       echo '<link rel="stylesheet" type="text/css" href="'.plugins_url( 'css/style.css', __FILE__).'" />'."\n";
     }
 	}
@@ -166,7 +166,7 @@ Thanks for reading ".get_bloginfo('name')."!";
   
   
   function export() {
-    if( is_admin() && $_GET['page'] == 'fv_feedburner_replacement' && $_GET['export'] == true ) {
+    if( is_admin() && isset($_GET['page']) && isset($_GET['export']) && $_GET['page'] == 'fv_feedburner_replacement' && $_GET['export'] == true ) {
       $newsletter_bridge = new FV_Feedburner_Replacement_Newsletter_Bridge;
       $newsletter_bridge->export();   
     }   
@@ -310,7 +310,7 @@ Thanks for reading ".get_bloginfo('name')."!";
 	
 	
 	function get_request_subscribe() {
-	  if( $_GET['subscribe'] == 'yes' ) {
+	  if( isset($_GET['subscribe']) && $_GET['subscribe'] == 'yes' ) {
 	    return true;
 	  }
 	  return false;
@@ -780,7 +780,7 @@ fv_feedburner_replacement_countChars(document.getElementById('description'),docu
     	$content .= '<p><a href="'.preg_replace( '~(\?.*$)~', '', $_SERVER['HTTP_REFERER'] ).'">Continue to the article &raquo;</a></p>';
     }
     //remove_filter( 'the_content', array( $this, 'the_content' ), 999 );
-    return $content.'<!--fvfr-->';
+    return $content;
   }
   
   
@@ -871,7 +871,7 @@ fv_feedburner_replacement_countChars(document.getElementById('description'),docu
   
 	function wp_headers( $headers, $wp ) {
 	  // we need to make sure there is no 304 headers for /feed and /feed/subscription
-	  if( ( $wp->query_vars['feed'] == 'feed' || $wp->query_vars['feed'] == 'subscription' ) ) {	  
+	  if( isset($wp->query_vars['feed']) && ( $wp->query_vars['feed'] == 'feed' || $wp->query_vars['feed'] == 'subscription' ) ) {	  
 	    unset( $headers['Last-Modified'] );
 	    unset( $headers['ETag'] );
 	  }
@@ -883,5 +883,3 @@ fv_feedburner_replacement_countChars(document.getElementById('description'),docu
 
 
 $FV_Feedburner_Replacement = new FV_Feedburner_Replacement;
-
-?>
