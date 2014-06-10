@@ -172,7 +172,38 @@ class FV_Feedburner_Replacement_Newsletter_Bridge {
       return;
     }
 
-    $wpdb->query( "INSERT INTO {$wpdb->prefix}newsletter (email, name, status, created, token, feed, ip ) VALUES ('{$email}','{$name}','S','{$time}','{$token}',1,'{$_SERVER['REMOTE_ADDR']}' ) " );
+    $aFields = array(
+      'email'     => $email,
+      'name'      => $name,
+      'status'    => 'S',
+      'created'   => $time,
+      'token'     => $token,
+      'feed'      => 1,
+      'ip'        => $_SERVER['REMOTE_ADDR']
+    );
+    $aFormats = array(
+      '%s',
+      '%s',
+      '%s',
+      '%s',
+      '%s',
+      '%d',
+      '%s',
+    );
+
+   $aFieldNFormats = apply_filters(
+      'fv_feedburner_replacement_insert_feed_subscriber',
+      array( 'fields' => $aFields, 'formats' => $aFormats )
+   );
+   $aFields  = $aFieldNFormats[ 'fields' ];
+   $aFormats = $aFieldNFormats[ 'formats' ];
+
+    $wpdb->insert(
+      "{$wpdb->prefix}newsletter",
+      $aFields,
+      $aFormats
+    );
+
     if( $wpdb->last_error ) {
       $this->status = 'error';
       return;

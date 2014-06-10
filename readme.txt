@@ -3,7 +3,7 @@
 Contributors: FolioVision
 Tags: feedburner,feed,subscribe,newsletter
 Requires at least: 3.5
-Tested up to: 3.8
+Tested up to: 3.9.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -45,6 +45,10 @@ Never pay monthly fees no matter how many subscribers you have. Never risk losin
 1. Plugin settings screen.
 
 == Changelog ==
+
+= 0.4.2 =
+* Bugfix for PHP notices
+* Addition of filter for subscriber insertion query
 
 = 0.4.1 =
 * Bugfix for PHP warnings

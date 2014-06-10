@@ -3,7 +3,7 @@
 Plugin Name: FV Feedburner Replacement
 Description: Changes /feed to a newsletter subscription page, yet allows feed readers to read it as a feed. Eases up user subscription.
 Author: Foliovision 
-Version: 0.4.1
+Version: 0.4.2
 */
 
 require_once( dirname(__FILE__) . '/newsletter-bridge.php' );
@@ -196,7 +196,7 @@ Thanks for reading ".get_bloginfo('name')."!";
       return false;
     }
     
-    if( ($this->detect_feedburner() && $options['feedburner_include']) || ($options['feedburner_test'] && $options['feedburner_include']) ) {
+    if( ($this->detect_feedburner() && isset($options['feedburner_include']) && $options['feedburner_include']) || ( isset($options['feedburner_test']) && $options['feedburner_test'] && isset($options['feedburner_include']) && $options['feedburner_include']) ) {
       return true;
     }
     return false;  
@@ -210,11 +210,11 @@ Thanks for reading ".get_bloginfo('name')."!";
 			
     $options = get_option( 'fv_feedburner_replacement' );			
     
-		if( $options['form_code'] ) {
+		if( isset($options['form_code']) && $options['form_code'] ) {
 		  $include_post_content .= apply_filters( 'the_content', $options['form_code'] );
 		}    
     
-		if( $options['show_links'] ) {
+		if( isset($options['show_links']) && $options['show_links'] ) {
 		  $include_post_content .= '<p>'.__('Pick the feed for subscription').':</p>';
 		  $include_post_content .= '<ul>';
 		  $include_post_content .= '<li><a href="'.$this->get_rss2_url().'">RSS feed</a></li>';
@@ -223,13 +223,13 @@ Thanks for reading ".get_bloginfo('name')."!";
       //$include_post_content .= '<li><a href="'.get_bloginfo('rdf_url').'">RDF/RSS 1.0 feed </a></li>';
       //$include_post_content .= '<li><a href="'.get_bloginfo('rss_url').'">RSS 0.92 feed</a></li>';
       $include_post_content .= '<li><a href="'.get_bloginfo('atom_url').'">Atom feed</a></li>';      
-      if( $options['show_links_comments'] ) {
+      if( isset($options['show_links_comments']) && $options['show_links_comments'] ) {
         $include_post_content .= '<li><a href="'.get_bloginfo('comments_rss2_url').'">Comments feed</a></li>';
       }
       $include_post_content .= '</ul>'; 
 		}
 		
-    if( $options['show_category_links'] ) {
+    if( isset($options['show_category_links']) && $options['show_category_links'] ) {
       $categories = get_categories();
       if( $categories ) {
 		    $include_post_content .= '<p>'.__('Category feeds').':</p>';
@@ -348,7 +348,7 @@ Thanks for reading ".get_bloginfo('name')."!";
 	
 	function meta_description() {
 	   $options = get_option( 'fv_feedburner_replacement' );
-	   if( strlen($options['description']) ) {
+	   if( isset($options['description']) && strlen($options['description']) ) {
 	     echo '<meta name="description" content="'.esc_attr($options['description']).'" />'."\n";
 	   }
 	}
@@ -734,15 +734,15 @@ fv_feedburner_replacement_countChars(document.getElementById('description'),docu
   public function pre_get_posts() {
     global $wp_query;
 
-    if( $wp_query->is_feed && $wp_query->query_vars['feed'] == 'rss2' ) {  
+    if( $wp_query->is_feed && isset($wp_query->query_vars['feed']) && $wp_query->query_vars['feed'] == 'rss2' ) {  
       remove_action('template_redirect', 'redirect_canonical');
     }
 
-    if( $this->user_agents() && $wp_query->query_vars['feed'] != 'subscription' ) {
+    if( $this->user_agents() && ( !isset($wp_query->query_vars['feed']) || $wp_query->query_vars['feed'] != 'subscription' ) ) {
       return;
     }    
      
-    if( ($wp_query->is_feed && !$wp_query->is_archive) && $wp_query->query_vars['feed'] == 'subscription' ) {
+    if( ($wp_query->is_feed && !$wp_query->is_archive) && isset($wp_query->query_vars['feed']) && $wp_query->query_vars['feed'] == 'subscription' ) {
       $this->enabled = true;
       //  what hooks in if we are going to show the subscription page
       add_filter( 'the_posts', array( $this, 'generate_page' ), 10, 2 );	
@@ -769,7 +769,7 @@ fv_feedburner_replacement_countChars(document.getElementById('description'),docu
   public function the_content( $content ) {
     $options = get_option( 'fv_feedburner_replacement' );
     
-    if( ( $this->get_request_subscribe() && $options['feedburner_include']) || ($options['feedburner_test'] && $this->get_request_subscribe() ) ) {
+    if( ( $this->get_request_subscribe() && isset($options['feedburner_include']) && $options['feedburner_include']) || ( isset($options['feedburner_test']) && $options['feedburner_test'] && $this->get_request_subscribe() ) ) {
       remove_filter( 'the_content', array( $this, 'the_content' ), 999 );
       $content = '<div id="fvfr_notice"><p><strong>My Feedburner feed is deprecaded, please resubscribe to my new newsletter service:</strong></p>'."\n".apply_filters( 'the_content', $options['form_code'] )."\n".'<p><a href="'.get_permalink().'">Continue to &#8216;'.get_the_title().'&#8217; &raquo;</a></p></div>';
       $content = apply_filters( 'fv_feedburner_replacement_the_content', $content );
@@ -827,7 +827,7 @@ fv_feedburner_replacement_countChars(document.getElementById('description'),docu
     }
 	
     //  don't affect other feed types, just the default one 
-    if( $wp_query->query_vars['feed'] != 'feed' || $wp_query->query_vars['withcomments'] == '1' || $wp_query->is_archive ) {
+    if( $wp_query->query_vars['feed'] != 'feed' || ( isset($wp_query->query_vars['withcomments']) && $wp_query->query_vars['withcomments'] == '1' ) || $wp_query->is_archive ) {
       return;
     }
     
