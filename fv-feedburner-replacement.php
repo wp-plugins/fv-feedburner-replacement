@@ -8,6 +8,7 @@ Version: 0.4.2
 
 require_once( dirname(__FILE__) . '/newsletter-bridge.php' );
 
+
 class FV_Feedburner_Replacement {
 
   var $enabled;
@@ -39,7 +40,8 @@ class FV_Feedburner_Replacement {
     add_filter( 'post_link', array( $this, 'the_permalink_rss' ), 999 );  //  let's make sure any links to post have our subscription request added
     add_filter( 'post_comments_feed_link', array( $this, 'post_comments_feed_link' ), 999 );  //  post_link filter messes up the comment feed links in feed, so we need to fix these
     add_filter( 'the_permalink_rss', array( $this, 'the_permalink_rss' ), 999 );  
-    add_filter( 'option_rss_use_excerpt', array( $this, 'option_rss_use_excerpt' ), 999 );
+    add_filter( 'option_rss_use_excerpt', array( $this, 'option_rss_use_excerpt' ), 999 );    
+    add_filter( 'plugin_action_links', array( $this, 'fv_feedburner_replacement_plugin_action_links' ), 10, 2);
     
     //  additional init
     $this->default_form_code = "Welcome to the ".get_bloginfo('name')." subscription area. You can subscribe to ".get_bloginfo('name')." via newsletter or via RSS.
@@ -719,6 +721,16 @@ fv_feedburner_replacement_countChars(document.getElementById('description'),docu
   }
   
   
+  public function fv_feedburner_replacement_plugin_action_links($links, $file) {
+  	$plugin_file = basename(__FILE__);
+  	if (basename($file) == $plugin_file) {
+      $settings_link =  '<a href="'.site_url('wp-admin/options-general.php?page=fv_feedburner_replacement').'">Settings</a>';
+  		array_unshift($links, $settings_link);
+  	}
+  	return $links;
+  }
+  
+  
   public function post_comments_feed_link( $permalink ) {
     if( $this->is_feedburner() ) {
       $permalink = str_replace( '/?subscribe=yes/feed', '/feed', $permalink );
@@ -806,8 +818,8 @@ fv_feedburner_replacement_countChars(document.getElementById('description'),docu
     }
     return $permalink;
   }  
-  
-  
+
+
   public function template_redirect() {
   	global $feed, $withcomments, $wp, $wpdb, $wp_version, $wp_db_version, $wp_query;
 
